@@ -8,10 +8,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/components/ui/use-toast";
 import { easternUPCities, carTypes } from "@/constants/cities";
 import { packageTours } from "@/constants/destinations";
-import emailjs from 'emailjs-com';
-
-// Initialize EmailJS
-emailjs.init("kdadks@outlook.com");
+import { sendBookingNotification } from '@/services/emailService';
 
 const BookingModal = ({ isOpen, onClose, destination }) => {
   const { user } = useAuth();
@@ -50,29 +47,11 @@ const BookingModal = ({ isOpen, onClose, destination }) => {
 
   const sendNotificationEmail = async (bookingData) => {
     try {
-      const templateParams = {
-        to_email: 'kdadks@outlook.com',
-        destination: bookingData.destination || bookingData.packageTour || `${bookingData.fromDestination} to ${bookingData.toDestination}`,
-        customer_name: bookingData.name,
-        customer_email: bookingData.email,
-        customer_phone: bookingData.phone,
-        from_destination: bookingData.fromDestination,
-        to_destination: bookingData.toDestination || 'Package Tour',
-        package_tour: bookingData.packageTour || 'N/A',
-        car_type: bookingData.carType,
-        trip_type: bookingData.tripType,
-        booking_date: bookingData.date,
-        return_date: bookingData.returnDate || 'N/A',
-        special_needs: bookingData.specialNeeds || 'None',
-        booking_time: new Date().toLocaleString()
-      };
-
-      await emailjs.send(
-        'service_rgieaxb',
-        'template_qggcatv',
-        templateParams,
-        'vL9qSWBrX4zZSU2qP'
-      );
+      const result = await sendBookingNotification(bookingData);
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Failed to send email');
+      }
     } catch (error) {
       console.error('Failed to send notification email:', error);
       toast({
@@ -84,17 +63,6 @@ const BookingModal = ({ isOpen, onClose, destination }) => {
   };
 
   const handleSubmit = async () => {
-    if (!user) {
-      toast({
-        title: "Login Required",
-        description: "Please login to book a tour",
-        variant: "destructive"
-      });
-      navigate("/login");
-      onClose();
-      return;
-    }
-
     // Check if it's a custom tour booking (Start Your Journey)
     const isCustomTourBooking = destination === "Custom Tour";
     
@@ -189,7 +157,7 @@ const BookingModal = ({ isOpen, onClose, destination }) => {
       const newBooking = {
         ...formData,
         destination,
-        userId: user.email,
+        userId: formData.email, // Use email from form instead of user.email
         bookingDate: new Date().toISOString(),
         bookingId: `RR${Date.now()}`
       };

@@ -17,32 +17,45 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-xl shadow-lg border-b border-orange-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-orange-600">Raahi Rides</span>
+        <div className="flex justify-between items-center h-18">
+          <Link to="/" className="flex items-center group">
+            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-700 group-hover:to-orange-800 transition-all duration-300">
+              Raahi Rides
+            </span>
           </Link>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-orange-600">Home</Link>
-            <Link to="/about" className="text-gray-700 hover:text-orange-600">About Us</Link>
+          <div className="hidden md:flex items-center space-x-1">
+            <Link to="/" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+              Home
+            </Link>
+            <Link to="/about" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+              About Us
+            </Link>
             {user ? (
               <>
-                <Link to="/members/bookings" className="text-gray-700 hover:text-orange-600">My Bookings</Link>
-                <Link to="/members/history" className="text-gray-700 hover:text-orange-600">Travel History</Link>
-                <Link to="/members/rewards" className="text-gray-700 hover:text-orange-600">Rewards</Link>
-                <Button 
+                <Link to="/members/bookings" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+                  My Bookings
+                </Link>
+                <Link to="/members/history" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+                  Travel History
+                </Link>
+                <Link to="/members/profile" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+                  Profile
+                </Link>
+                {/* <Link to="/members/rewards" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">Rewards</Link> */}
+                <Button
                   onClick={logout}
-                  className="bg-orange-600 hover:bg-orange-700 text-white"
+                  className="ml-3 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   Logout
                 </Button>
               </>
             ) : (
               <Link to="/login">
-                <Button className="bg-orange-600 hover:bg-orange-700 text-white">
+                <Button className="ml-3 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                   Login
                 </Button>
               </Link>
@@ -53,7 +66,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <Button
               variant="ghost"
-              className="p-2"
+              className="p-3 rounded-full hover:bg-orange-50 text-gray-700 hover:text-orange-600 transition-all duration-300"
               onClick={toggleMenu}
             >
               {isMenuOpen ? (
@@ -67,51 +80,58 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="md:hidden border-t border-orange-100/50 bg-white/95 backdrop-blur-xl">
+            <div className="px-4 pt-4 pb-6 space-y-2">
               <Link
                 to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                 onClick={closeMenu}
               >
-                Home
+                🏠 Home
               </Link>
               <Link
                 to="/about"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                 onClick={closeMenu}
               >
-                About Us
+                ℹ️ About Us
               </Link>
               {user ? (
                 <>
                   <Link
                     to="/members/bookings"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                     onClick={closeMenu}
                   >
-                    My Bookings
+                    📋 My Bookings
                   </Link>
                   <Link
                     to="/members/history"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                     onClick={closeMenu}
                   >
-                    Travel History
+                    🗓️ Travel History
                   </Link>
                   <Link
-                    to="/members/rewards"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                    to="/members/profile"
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
                     onClick={closeMenu}
                   >
-                    Rewards
+                    👤 Profile
                   </Link>
-                  <Button 
+                  {/* <Link
+                    to="/members/rewards"
+                    className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
+                    onClick={closeMenu}
+                  >
+                    🎁 Rewards
+                  </Link> */}
+                  <Button
                     onClick={() => {
                       logout();
                       closeMenu();
                     }}
-                    className="w-full mt-2 bg-orange-600 hover:bg-orange-700 text-white"
+                    className="w-full mt-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white rounded-xl py-3 font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
                   >
                     Logout
                   </Button>
@@ -119,10 +139,10 @@ const Navbar = () => {
               ) : (
                 <Link
                   to="/login"
-                  className="block w-full mt-2"
+                  className="block w-full mt-4"
                   onClick={closeMenu}
                 >
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                  <Button className="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white rounded-xl py-3 font-semibold shadow-lg transform hover:scale-105 transition-all duration-300">
                     Login
                   </Button>
                 </Link>

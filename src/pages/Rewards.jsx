@@ -1,3 +1,5 @@
+// Rewards page functionality has been commented out
+/*
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -70,6 +72,21 @@ const Rewards = () => {
               </li>
             </ul>
           </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+*/
+
+// Placeholder component to prevent import errors
+const Rewards = () => {
+  return (
+    <div className="min-h-screen pt-24 bg-gradient-to-b from-amber-50 to-orange-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center py-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Rewards Coming Soon</h1>
+          <p className="text-gray-600">This feature is currently under development.</p>
         </div>
       </div>
     </div>

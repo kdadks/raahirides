@@ -46,7 +46,8 @@ Raahi Rides is a comprehensive travel service provider offering exceptional expe
 - **Terser** - JavaScript minification
 
 ### Additional Features
-- **EmailJS** - Email service integration
+- **SMTP Email Service** - Direct email notifications via Hostinger SMTP
+- **Nodemailer** - Professional email sending capabilities
 - **Class Variance Authority** - Component styling utilities
 - **Visual Editor Plugin** - Custom development tools
 
@@ -59,7 +60,7 @@ raahi-rides/
 ├── src/
 │   ├── components/
 │   │   ├── ui/                # Reusable UI components
-│   │   ├── BookingModal.jsx   # Booking interface
+│   │   ├── BookingModal.jsx   # Booking interface (SMTP integrated)
 │   │   ├── Destination.jsx    # Destination cards
 │   │   ├── Footer.jsx         # Site footer
 │   │   ├── ImageCollage.jsx   # Hero image display
@@ -67,6 +68,8 @@ raahi-rides/
 │   │   ├── PackageTour.jsx    # Tour package cards
 │   │   ├── ProtectedRoute.jsx # Route protection
 │   │   └── WhatsAppButton.jsx # WhatsApp integration
+│   ├── services/
+│   │   └── emailService.js    # SMTP email service
 │   ├── pages/
 │   │   ├── About.jsx          # About page
 │   │   ├── Login.jsx          # User login
@@ -88,7 +91,12 @@ raahi-rides/
 │   └── index.css              # Global styles
 ├── plugins/
 │   └── visual-editor/         # Custom development plugins
-├── package.json               # Dependencies and scripts
+├── server.cjs                 # Express.js SMTP server
+├── test-smtp.cjs             # SMTP connection test script
+├── package.json               # Frontend dependencies
+├── package-server.json        # Backend dependencies
+├── .env.example               # Environment variables template
+├── SMTP_SETUP.md             # SMTP configuration guide
 ├── vite.config.js             # Vite configuration
 ├── tailwind.config.js         # Tailwind configuration
 └── postcss.config.js          # PostCSS configuration
@@ -108,25 +116,44 @@ raahi-rides/
    cd raahi-rides
    ```
 
-2. **Install dependencies**
+2. **Install frontend dependencies**
    ```bash
    npm install
    ```
 
-3. **Start development server**
+3. **Set up SMTP email service**
+   ```bash
+   # Install backend dependencies
+   npm install express nodemailer cors dotenv
+   
+   # Copy environment template
+   cp .env.example .env
+   
+   # Edit .env file with your actual SMTP password
+   # SMTP_PASSWORD=your_actual_email_password
+   ```
+
+4. **Start the email service (in separate terminal)**
+   ```bash
+   node server.cjs
+   ```
+
+5. **Start development server**
    ```bash
    npm run dev
    ```
 
-4. **Build for production**
+6. **Build for production**
    ```bash
    npm run build
    ```
 
-5. **Preview production build**
+7. **Preview production build**
    ```bash
    npm run preview
    ```
+
+> **Note:** For detailed SMTP configuration, see [`SMTP_SETUP.md`](SMTP_SETUP.md)
 
 ## 🌍 Available Routes
 
@@ -181,6 +208,13 @@ raahi-rides/
 - Production builds exclude development plugins
 - Rollup configuration for optimal bundling
 - Custom error handling for development environment
+
+### SMTP Email Configuration
+- **Host:** smtp.hostinger.com (Port 465, SSL/TLS)
+- **Email:** info@raahirides.com
+- **Backend Service:** Express.js server for email handling
+- **Fallback:** Mock email service for development
+- See `SMTP_SETUP.md` for detailed configuration instructions
 
 ## 🤝 Contributing
 
