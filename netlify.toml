@@ -15,8 +15,7 @@
   node_bundler = "esbuild"
   external_node_modules = ["nodemailer"]
 
-[[functions]]
-  path = "netlify/functions/send-booking-email.js"
+[functions."send-booking-email"]
   timeout = 30
 
 [[headers]]
