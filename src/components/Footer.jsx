@@ -22,11 +22,14 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                <span className="text-xl">🚗</span>
-              </div>
+              <img
+                src="/raahi_rides_logo.png"
+                alt="Raahi Rides Logo"
+                className="w-12 h-12 rounded-xl mr-4 shadow-lg"
+                style={{ maxHeight: "48px" }}
+              />
               <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                Raahi Rides
+                <span className="sr-only">Raahi Rides</span>
               </h3>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">

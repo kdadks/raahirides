@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => {
@@ -7,7 +8,13 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 px-4">
+    <>
+      <Helmet>
+        <title>Privacy Policy | RaahiRides Travel Agency</title>
+        <meta name="description" content="Read the privacy policy of RaahiRides. Learn how we protect your personal information and ensure secure travel bookings for Eastern UP, Bihar, and Nepal." />
+        <meta name="keywords" content="privacy policy, RaahiRides, data protection, travel agency, personal information, security, India, Nepal, Eastern UP, Bihar" />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -149,6 +156,7 @@ const PrivacyPolicy = () => {
         </motion.div>
       </div>
     </div>
+  </>
   );
 };
 

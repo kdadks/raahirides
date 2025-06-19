@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Destination from "@/components/Destination";
 import BookingModal from "@/components/BookingModal";
@@ -24,7 +25,13 @@ const Destinations = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50/30 to-orange-50/50 pt-24">
+    <>
+      <Helmet>
+        <title>Popular Destinations | RaahiRides Travel Agency</title>
+        <meta name="description" content="Explore the most popular spiritual and cultural destinations in Eastern UP, Bihar, and Nepal. Discover sacred places, heritage sites, and custom travel packages with RaahiRides." />
+        <meta name="keywords" content="destinations, travel, tours, spiritual, cultural, heritage, India, Nepal, Eastern UP, Bihar, RaahiRides, popular places, sacred sites, custom packages" />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-amber-50/30 to-orange-50/50 pt-24">
       {/* Header Section */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -114,6 +121,7 @@ const Destinations = () => {
         destination={selectedDestination}
       />
     </div>
+  </>
   );
 };
 

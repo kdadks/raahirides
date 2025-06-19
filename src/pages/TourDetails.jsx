@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -39,7 +40,19 @@ const TourDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50/30 to-amber-50/50">
+    <>
+      <Helmet>
+        <title>{tour ? `${tour.title} | RaahiRides Tour Details` : "Tour Details | RaahiRides"}</title>
+        <meta
+          name="description"
+          content={tour ? `${tour.description} - Duration: ${tour.duration}, Price: ${tour.price}. Book with RaahiRides for the best travel experience in Eastern UP, Bihar, and Nepal.` : "Tour details for RaahiRides travel packages."}
+        />
+        <meta
+          name="keywords"
+          content={tour ? `tour details, ${tour.title}, ${tour.destinations?.map(d => d.name).join(", ")}, travel, spiritual tours, heritage tours, RaahiRides, India, Nepal, Eastern UP, Bihar` : "tour details, travel, RaahiRides"}
+        />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-orange-50/30 to-amber-50/50">
       {/* Header Section */}
       <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
@@ -225,6 +238,7 @@ const TourDetails = () => {
         destination={tour.title}
       />
     </div>
+  </>
   );
 };
 

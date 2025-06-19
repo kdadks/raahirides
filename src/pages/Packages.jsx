@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import PackageTour from "@/components/PackageTour";
 import BookingModal from "@/components/BookingModal";
@@ -28,9 +29,15 @@ const Packages = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50/30 to-amber-50/50 pt-24">
+    <>
+      <Helmet>
+        <title>Tour Packages | RaahiRides Travel Agency</title>
+        <meta name="description" content="Discover spiritual and heritage tour packages in Eastern UP, Bihar, and Nepal. Book curated journeys with RaahiRides for the best travel experiences." />
+        <meta name="keywords" content="tour packages, travel, spiritual tours, heritage tours, India, Nepal, Eastern UP, Bihar, RaahiRides, curated journeys, book tours" />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-amber-50/30 to-orange-50/50 pt-24">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-16">
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -56,7 +63,7 @@ const Packages = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-orange-700 to-orange-800 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-orange-700 bg-clip-text text-transparent">
               Our Spiritual Journeys
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -88,6 +95,7 @@ const Packages = () => {
         destination={selectedDestination}
       />
     </div>
+  </>
   );
 };
 

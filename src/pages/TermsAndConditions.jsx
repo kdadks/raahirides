@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 const TermsAndConditions = () => {
@@ -7,7 +8,13 @@ const TermsAndConditions = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 px-4">
+    <>
+      <Helmet>
+        <title>Terms and Conditions | RaahiRides Travel Agency</title>
+        <meta name="description" content="Read the terms and conditions for using RaahiRides travel services. Learn about bookings, cancellations, responsibilities, and legal information." />
+        <meta name="keywords" content="terms and conditions, RaahiRides, travel agency, booking policy, cancellation, legal, India, Nepal, Eastern UP, Bihar" />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -181,6 +188,7 @@ const TermsAndConditions = () => {
         </motion.div>
       </div>
     </div>
+  </>
   );
 };
 

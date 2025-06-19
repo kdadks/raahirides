@@ -1,9 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="min-h-screen pt-20 bg-gradient-to-br from-amber-50 via-orange-50/30 to-white relative overflow-hidden">
+    <>
+      <Helmet>
+        <title>About RaahiRides | Best Travel Agency for Eastern UP, Bihar & Nepal</title>
+        <meta name="description" content="Learn about RaahiRides, the premier travel agency for spiritual, heritage, and adventure tours in Eastern UP, Bihar, and Nepal. 15+ years of experience, trusted by the UP government." />
+        <meta name="keywords" content="about RaahiRides, travel agency, Eastern UP, Bihar, Nepal, spiritual tours, heritage tours, best travel company, trusted travel, government certified" />
+      </Helmet>
+      <div className="min-h-screen pt-20 bg-gradient-to-br from-amber-50 via-orange-50/30 to-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-orange-200/20 to-amber-200/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-48 h-48 bg-gradient-to-br from-orange-300/20 to-red-200/20 rounded-full blur-3xl"></div>
@@ -240,6 +247,7 @@ const About = () => {
         </motion.div>
       </div>
     </div>
+  </>
   );
 };
 

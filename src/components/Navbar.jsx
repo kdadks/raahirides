@@ -30,10 +30,15 @@ const Navbar = () => {
           <button
             onClick={() => handleNavigation("/")}
             className="flex items-center group"
+            aria-label="Raahi Rides Home"
           >
-            <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-700 group-hover:to-orange-800 transition-all duration-300">
-              Raahi Rides
-            </span>
+            <img
+              src="/raahi_rides_logo.png"
+              alt="Raahi Rides Logo"
+              className="h-10 w-auto mr-2"
+              style={{ maxHeight: "40px" }}
+            />
+            <span className="sr-only">Raahi Rides</span>
           </button>
           
           {/* Desktop Menu */}
