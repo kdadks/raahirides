@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -16,24 +17,51 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+  };
+
   return (
     <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-xl shadow-lg border-b border-orange-100/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18">
-          <Link to="/" className="flex items-center group">
+          <button
+            onClick={() => handleNavigation("/")}
+            className="flex items-center group"
+          >
             <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent group-hover:from-orange-700 group-hover:to-orange-800 transition-all duration-300">
               Raahi Rides
             </span>
-          </Link>
+          </button>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
-            <Link to="/" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+            <button
+              onClick={() => handleNavigation("/")}
+              className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium"
+            >
               Home
-            </Link>
-            <Link to="/about" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
+            </button>
+            <button
+              onClick={() => handleNavigation("/packages")}
+              className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium"
+            >
+              Tour Packages
+            </button>
+            <button
+              onClick={() => handleNavigation("/destinations")}
+              className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium"
+            >
+              Destinations
+            </button>
+            <button
+              onClick={() => handleNavigation("/about")}
+              className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium"
+            >
               About Us
-            </Link>
+            </button>
             {user ? (
               <>
                 <Link to="/members/bookings" className="px-4 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium">
@@ -82,20 +110,30 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-orange-100/50 bg-white/95 backdrop-blur-xl">
             <div className="px-4 pt-4 pb-6 space-y-2">
-              <Link
-                to="/"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
-                onClick={closeMenu}
+              <button
+                onClick={() => handleNavigation("/")}
+                className="block w-full text-left px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
               >
                 🏠 Home
-              </Link>
-              <Link
-                to="/about"
-                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
-                onClick={closeMenu}
+              </button>
+              <button
+                onClick={() => handleNavigation("/packages")}
+                className="block w-full text-left px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
+              >
+                📦 Tour Packages
+              </button>
+              <button
+                onClick={() => handleNavigation("/destinations")}
+                className="block w-full text-left px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
+              >
+                🗺️ Destinations
+              </button>
+              <button
+                onClick={() => handleNavigation("/about")}
+                className="block w-full text-left px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50 transition-all duration-300"
               >
                 ℹ️ About Us
-              </Link>
+              </button>
               {user ? (
                 <>
                   <Link

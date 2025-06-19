@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,11 @@ const TourDetails = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   
   const tour = packageTours.find(t => t.id === tourId);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [tourId]);
   
   if (!tour) {
     return (
@@ -171,7 +176,10 @@ const TourDetails = () => {
                   </Button>
                   
                   <Button
-                    onClick={() => navigate("/")}
+                    onClick={() => {
+                      navigate("/packages");
+                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                    }}
                     variant="outline"
                     className="w-full border-orange-300 text-orange-600 hover:bg-orange-50 font-semibold py-3 rounded-xl"
                   >
@@ -200,7 +208,7 @@ const TourDetails = () => {
                     </div>
                     <div className="flex items-center">
                       <span className="mr-2">📱</span>
-                      <span>+91 98765 43210</span>
+                      <span>+91 79051 59200</span>
                     </div>
                   </div>
                 </div>

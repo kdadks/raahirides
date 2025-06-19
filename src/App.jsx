@@ -22,6 +22,8 @@ import TravelHistory from "@/pages/TravelHistory";
 import Rewards from "@/pages/Rewards";
 import Profile from "@/pages/Profile";
 import TourDetails from "@/pages/TourDetails";
+import Packages from "@/pages/Packages";
+import Destinations from "@/pages/Destinations";
 import { popularDestinations, packageTours } from "@/constants/destinations";
 
 function App() {
@@ -128,7 +130,7 @@ function App() {
       </header>
 
       {/* Package Tours Section */}
-      <section className="py-24 px-4 md:px-8 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 relative">
+      <section id="packages" className="py-24 px-4 md:px-8 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/50 relative">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 bg-orange-300 rounded-full blur-3xl"></div>
@@ -175,7 +177,7 @@ function App() {
       </section>
 
       {/* Popular Destinations Section */}
-      <section className="py-24 px-4 md:px-8 bg-gradient-to-br from-amber-50 via-orange-50/40 to-white relative overflow-hidden">
+      <section id="destinations" className="py-24 px-4 md:px-8 bg-gradient-to-br from-amber-50 via-orange-50/40 to-white relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-gradient-to-br from-orange-200/20 to-amber-200/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-gradient-to-br from-orange-300/20 to-red-200/20 rounded-full blur-3xl"></div>
@@ -229,6 +231,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/destinations" element={<Destinations />} />
           <Route path="/tour/:tourId" element={<TourDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

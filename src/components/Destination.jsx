@@ -20,7 +20,7 @@ const Destination = ({ title, description, attractions, onBook }) => {
       case 'prayagraj':
         return <img alt="Anand Bhavan Prayagraj" className="w-full h-64 object-cover" src="/Prayagraj.jpeg" />;
       case 'kathmandu':
-        return <img alt="Kathmandu Durbar Square" className="w-full h-64 object-cover" src="https://images.unsplash.com/photo-1571849079798-5e4b50b45bc5?w=800&q=80" />;
+        return <img alt="Kathmandu Durbar Square" className="w-full h-64 object-cover" src="/kathmandu.jpg" />;
       default:
         return <img alt="Indian Temple" className="w-full h-64 object-cover" src="https://storage.googleapis.com/hostinger-horizons-assets-prod/65576a3d-d7d1-4ec7-879b-5aa0c8a410d5/1448f00b36357d9e4ddfcbe07429204a.jpg" />;
     }

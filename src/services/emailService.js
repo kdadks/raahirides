@@ -18,11 +18,17 @@ const SMTP_CONFIG = {
  */
 export const sendBookingNotification = async (bookingData) => {
   try {
-    // Get the API base URL from environment or use default
+    // Get the API base URL - for Netlify functions or fallback to local development
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
     
-    // Send booking data to backend API
-    const response = await fetch(`${API_BASE_URL}/api/send-booking-email`, {
+    // Determine the endpoint based on environment
+    const isNetlifyFunction = API_BASE_URL.includes('netlify');
+    const endpoint = isNetlifyFunction
+      ? `${API_BASE_URL}/send-booking-email`
+      : `${API_BASE_URL}/api/send-booking-email`;
+    
+    // Send booking data to Netlify function or backend API
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,11 +52,14 @@ export const sendBookingNotification = async (bookingData) => {
   } catch (error) {
     console.error('Failed to send booking email:', error);
     
-    // Fallback to mock for development if backend is not available
-    if (error.message.includes('fetch') || error.message.includes('Failed to fetch')) {
-      console.warn('Backend not available, using mock email service');
+    // Enhanced fallback handling for different scenarios
+    if (error.message.includes('fetch') ||
+        error.message.includes('Failed to fetch') ||
+        error.message.includes('NetworkError') ||
+        error.name === 'TypeError') {
+      console.warn('Service not available, using mock email service for development');
       await mockEmailSend(formatBookingEmail(bookingData));
-      return { success: true, message: 'Email sent successfully (mock)' };
+      return { success: true, message: 'Email sent successfully (development mode)' };
     }
     
     return { success: false, error: error.message };
