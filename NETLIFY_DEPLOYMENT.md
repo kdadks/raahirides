@@ -113,15 +113,29 @@ To get these values:
    - Verify all dependencies are in package.json
    - Check build logs for specific errors
 
-2. **Email Function Not Working**
-   - Verify SMTP_PASSWORD environment variable
-   - Check function logs in Netlify dashboard
-   - Ensure Hostinger SMTP settings are correct
+2. **Email Function 500 Error (Fixed)**
+   - The function now uses CommonJS format (not ES modules)
+   - Verify SMTP_PASSWORD environment variable is set in Netlify
+   - Check function logs in Netlify dashboard under Functions tab
+   - Ensure environment variable has no quotes around it
+   - Redeploy site after adding environment variables
 
-3. **Environment Variables**
-   - Don't include quotes around values
-   - Redeploy after adding new variables
-   - Check variable names for typos
+3. **Email Function Not Working**
+   - Check Netlify function logs: Site Settings > Functions > View function logs
+   - Verify SMTP_PASSWORD environment variable exists
+   - Test SMTP credentials with the test-smtp.cjs script locally
+   - Ensure Hostinger SMTP settings are correct (smtp.hostinger.com:465)
+
+4. **Environment Variables**
+   - Don't include quotes around values in Netlify dashboard
+   - Redeploy after adding new variables (Functions need redeployment)
+   - Check variable names for typos (case-sensitive)
+   - Variables should be: SMTP_PASSWORD and VITE_API_BASE_URL
+
+5. **CORS Issues**
+   - Function includes proper CORS headers
+   - If still getting CORS errors, check browser developer tools
+   - Ensure frontend is calling /.netlify/functions/send-booking-email
 
 ### Support
 

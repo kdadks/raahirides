@@ -37,13 +37,16 @@ export const sendBookingNotification = async (bookingData) => {
     });
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Email service error response:', errorText);
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
     
     const result = await response.json();
     
     if (!result.success) {
-      throw new Error(result.error || 'Failed to send email');
+      console.error('Email service returned error:', result);
+      throw new Error(result.error || result.details || 'Failed to send email');
     }
     
     console.log('Booking notification sent successfully:', result.messageId);

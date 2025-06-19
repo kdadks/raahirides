@@ -28,13 +28,42 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const { bookingData } = JSON.parse(event.body);
+    console.log('Function invoked with event:', JSON.stringify(event, null, 2));
+
+    let bookingData;
+    try {
+      const body = JSON.parse(event.body);
+      bookingData = body.bookingData;
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError);
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Invalid JSON in request body' })
+      };
+    }
 
     if (!bookingData) {
+      console.error('No booking data provided');
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({ error: 'Booking data is required' })
+      };
+    }
+
+    console.log('Processing booking data:', bookingData);
+
+    // Validate required environment variables
+    if (!process.env.SMTP_PASSWORD) {
+      console.error('SMTP_PASSWORD environment variable is not set');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ 
+          error: 'Email service configuration error',
+          details: 'SMTP_PASSWORD not configured'
+        })
       };
     }
 
@@ -46,29 +75,65 @@ exports.handler = async (event, context) => {
       auth: {
         user: 'info@raahirides.com',
         pass: process.env.SMTP_PASSWORD
-      }
+      },
+      debug: false,
+      logger: false
     };
 
-    // Validate required environment variables
-    if (!process.env.SMTP_PASSWORD) {
-      console.error('SMTP_PASSWORD environment variable is not set');
+    console.log('Creating SMTP transporter...');
+
+    // Create transporter
+    let transporter;
+    try {
+      transporter = nodemailer.createTransporter(smtpConfig);
+    } catch (transporterError) {
+      console.error('Error creating transporter:', transporterError);
       return {
         statusCode: 500,
         headers,
-        body: JSON.stringify({ error: 'Email service configuration error' })
+        body: JSON.stringify({ 
+          error: 'Failed to create email transporter',
+          details: transporterError.message
+        })
       };
     }
 
-    // Create transporter
-    const transporter = nodemailer.createTransporter(smtpConfig);
-
     // Format email content
     const emailContent = formatBookingEmail(bookingData);
+    console.log('Email content prepared for:', emailContent.to);
+
+    // Verify transporter
+    try {
+      await transporter.verify();
+      console.log('SMTP connection verified');
+    } catch (verifyError) {
+      console.error('SMTP verification failed:', verifyError);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ 
+          error: 'SMTP connection failed',
+          details: verifyError.message
+        })
+      };
+    }
 
     // Send email
-    const result = await transporter.sendMail(emailContent);
-
-    console.log('Email sent successfully:', result.messageId);
+    let result;
+    try {
+      result = await transporter.sendMail(emailContent);
+      console.log('Email sent successfully:', result.messageId);
+    } catch (sendError) {
+      console.error('Error sending email:', sendError);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ 
+          error: 'Failed to send email',
+          details: sendError.message
+        })
+      };
+    }
 
     return {
       statusCode: 200,
@@ -81,15 +146,16 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Unexpected error in function:', error);
 
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
         success: false,
-        error: 'Failed to send booking notification',
-        details: error.message
+        error: 'Internal server error',
+        details: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
       })
     };
   }
