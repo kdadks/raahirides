@@ -239,6 +239,106 @@ function App() {
           ))}
         </div>
       </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-4 md:px-8 bg-gradient-to-r from-orange-50 via-amber-50 to-white text-center">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-orange-700">Why Choose Raahi Rides?</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <div className="text-4xl md:text-6xl font-extrabold text-orange-600">10K+</div>
+              <div className="text-lg font-medium text-gray-700 mt-2">Happy Customers</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-6xl font-extrabold text-orange-600">150k+</div>
+              <div className="text-lg font-medium text-gray-700 mt-2">KM Travelled</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-6xl font-extrabold text-orange-600">100+</div>
+              <div className="text-lg font-medium text-gray-700 mt-2">Destinations</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-6xl font-extrabold text-orange-600">15+</div>
+              <div className="text-lg font-medium text-gray-700 mt-2">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section className="py-16 px-4 md:px-8 bg-gradient-to-l from-orange-50 via-amber-50 to-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-orange-700 text-center">What Our Customers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Anil Patel</div>
+                  <div className="text-sm text-gray-500">New Jersey, USA (NRI)</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"Booked the Shiva Shambhu package tour for my parents directly through the Raahi Rides website. The online booking was simple, and the team ensured a smooth, spiritual journey!"</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Neha Reddy</div>
+                  <div className="text-sm text-gray-500">Sydney, Australia (NRI)</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"We booked the Awadh Retreat package tour online from Australia. The website was easy to use, and the Raahi Rides team took care of every detail for our NRI family."</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Priya Sharma</div>
+                  <div className="text-sm text-gray-500">Varanasi, India</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"Raahi Rides made our family trip to Bodh Gaya so smooth and memorable. Highly recommended!"</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Rohit Verma</div>
+                  <div className="text-sm text-gray-500">Patna, India</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"Affordable and reliable. Will book again for my next trip to Nepal!"</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Sophie Dubois</div>
+                  <div className="text-sm text-gray-500">Paris, France</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"Wonderful service! The booking process was easy and the journey was delightful."</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+              <div className="flex items-center mb-4">
+                <span className="inline-block w-10 h-10 bg-orange-200 rounded-full mr-3"></span>
+                <div>
+                  <div className="font-semibold text-orange-700">Emily Chen</div>
+                  <div className="text-sm text-gray-500">Singapore</div>
+                </div>
+              </div>
+              <div className="text-gray-700 italic flex-grow">"The best way to explore Bihar and UP. The guides were knowledgeable and friendly."</div>
+              <div className="mt-4 text-yellow-400 text-lg">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 
