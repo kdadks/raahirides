@@ -51,51 +51,56 @@ function App() {
   const HomePage = () => (
     <>
       {/* Hero Section */}
-      <header className="relative h-screen overflow-hidden">
+      <header
+        className="relative min-h-screen overflow-hidden md:pt-0"
+        style={{
+          paddingTop: "calc(72px + env(safe-area-inset-top))"
+        }}
+      >
         <ImageCollage />
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-orange-900/30 z-10" />
-        
-        <div className="absolute inset-0 z-20 flex items-center justify-center text-center text-white px-4">
-          <div className="max-w-6xl mx-auto">
+
+        <div className="absolute inset-0 z-20 flex items-center justify-center text-center text-white px-2 sm:px-4">
+          <div className="max-w-6xl mx-auto w-full px-2 sm:px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl"
+              className="backdrop-blur-sm bg-white/10 rounded-3xl p-4 sm:p-8 md:p-12 border border-white/20 shadow-2xl"
             >
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-orange-100 to-orange-200 bg-clip-text text-transparent"
+                className="text-3xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-orange-100 to-orange-200 bg-clip-text text-transparent leading-tight"
               >
                 Raahi Rides
               </motion.h1>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-xl md:text-2xl lg:text-3xl font-light text-orange-100"
+                  className="text-base sm:text-xl md:text-2xl lg:text-3xl font-light text-orange-100"
                 >
                   Your Premier Travel Partner in Eastern UP, Bihar & Nepal
                 </motion.p>
-                <div className="flex flex-wrap justify-center gap-4 mt-4">
-                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-2 sm:mt-4">
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
                     15+ Years of Travel Industry Experience
                   </span>
-                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
                     Govt. Certified 
                   </span>
-                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
                     Serving UP Govt. for 10+ Years
                   </span>
-                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
                     Trust & Customer Service Focused
                   </span>
                 </div>
-                <div className="mt-4">
-                  <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-6 py-2 rounded-full shadow text-lg md:text-xl tracking-wide">
+                <div className="mt-2 sm:mt-4">
+                  <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-4 py-1 sm:px-6 sm:py-2 rounded-full shadow text-base sm:text-lg md:text-xl tracking-wide">
                     Quality travel with trust is our mantra
                   </span>
                 </div>
@@ -103,7 +108,7 @@ function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-white/90 font-light leading-relaxed"
+                  className="text-sm sm:text-lg md:text-xl lg:text-2xl max-w-full sm:max-w-4xl mx-auto text-white/90 font-light leading-relaxed"
                 >
                   Discover seamless travel experiences with our comprehensive solutions - from point-to-point journeys to corporate retreats. Let us handle logistics of your travel so you can build the memories of the trips
                 </motion.p>
@@ -112,12 +117,12 @@ function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-10"
+                className="mt-6 sm:mt-10"
               >
                 <Button
                   size="lg"
                   onClick={() => handleBookNow("Custom Tour")}
-                  className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white px-10 py-6 text-lg md:text-xl font-semibold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400/30"
+                  className="w-full sm:w-auto bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white px-6 py-4 sm:px-10 sm:py-6 text-base sm:text-lg md:text-xl font-semibold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400/30"
                 >
                   Start Your Journey
                   <span className="ml-2">✨</span>
@@ -126,9 +131,9 @@ function App() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Floating particles effect */}
-        <div className="absolute inset-0 z-5">
+        <div className="absolute inset-0 z-5 pointer-events-none">
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}

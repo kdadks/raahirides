@@ -40,6 +40,35 @@ const Navbar = () => {
             />
             <span className="sr-only">Raahi Rides</span>
           </button>
+
+          {/* Mobile: Always show Tour Packages and Destinations */}
+          <div
+            className="flex md:hidden items-center space-x-2"
+            style={{
+              minWidth: 0,
+              flex: "1 1 auto",
+              justifyContent: "center",
+              paddingLeft: "env(safe-area-inset-left)",
+              paddingRight: "env(safe-area-inset-right)",
+            }}
+          >
+            <button
+              onClick={() => handleNavigation("/packages")}
+              className="min-w-[44px] min-h-[44px] px-3 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium text-sm truncate"
+              style={{ maxWidth: 120 }}
+              aria-label="Tour Packages"
+            >
+              Tour Packages
+            </button>
+            <button
+              onClick={() => handleNavigation("/destinations")}
+              className="min-w-[44px] min-h-[44px] px-3 py-2 rounded-full text-gray-700 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300 font-medium text-sm truncate"
+              style={{ maxWidth: 120 }}
+              aria-label="Destinations"
+            >
+              Destinations
+            </button>
+          </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
