@@ -24,6 +24,9 @@ import Profile from "@/pages/Profile";
 import TourDetails from "@/pages/TourDetails";
 import Packages from "@/pages/Packages";
 import Destinations from "@/pages/Destinations";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsAndConditions from "@/pages/TermsAndConditions";
+import ContactUs from "@/pages/ContactUs";
 import { popularDestinations, packageTours } from "@/constants/destinations";
 
 function App() {
@@ -77,13 +80,32 @@ function App() {
                 >
                   Your Premier Travel Partner in Eastern UP, Bihar & Nepal
                 </motion.p>
+                <div className="flex flex-wrap justify-center gap-4 mt-4">
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                    15+ Years of Travel Industry Experience
+                  </span>
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                    Govt. Certified 
+                  </span>
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                    Serving UP Govt. for 10+ Years
+                  </span>
+                  <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                    Trust & Customer Service Focused
+                  </span>
+                </div>
+                <div className="mt-4">
+                  <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-6 py-2 rounded-full shadow text-lg md:text-xl tracking-wide">
+                    Quality travel with trust is our mantra
+                  </span>
+                </div>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto text-white/90 font-light leading-relaxed"
                 >
-                  Discover seamless travel experiences with our comprehensive solutions - from point-to-point journeys to corporate retreats
+                  Discover seamless travel experiences with our comprehensive solutions - from point-to-point journeys to corporate retreats. Let us handle logistics of your travel so you can build the memories of the trips
                 </motion.p>
               </div>
               <motion.div
@@ -236,6 +258,9 @@ function App() {
           <Route path="/tour/:tourId" element={<TourDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           <Route
             path="/members/*"
             element={

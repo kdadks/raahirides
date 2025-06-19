@@ -29,6 +29,25 @@ const About = () => {
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Your Premier Travel Service Provider in Eastern UP, Bihar & Nepal
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-6">
+              <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                15+ Years of Travel Industry Experience
+              </span>
+              <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                Govt. Certified
+              </span>
+              <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                Serving UP Govt. for 10+ Years
+              </span>
+              <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
+                Trust & Customer Service Focused
+              </span>
+            </div>
+            <div className="mt-4">
+              <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-6 py-2 rounded-full shadow text-lg md:text-xl tracking-wide">
+                Quality travel with trust is our mantra
+              </span>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -83,7 +102,7 @@ const About = () => {
               <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-orange-600 rounded-full mb-6"></div>
             </div>
             <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-              We are dedicated to delivering seamless and exceptional travel experiences that showcase the unique cultural heritage of Eastern Uttar Pradesh, Nepal, and Bihar. Our commitment extends to:
+              With over 15 years of travel industry experience and a decade of dedicated service to the Uttar Pradesh government as a certified vendor, we are committed to trust, quality, and customer service. We deliver seamless and exceptional travel experiences that showcase the unique cultural heritage of Eastern Uttar Pradesh, Nepal, and Bihar. Our commitment extends to:
             </p>
             <ul className="space-y-4">
               <li className="flex items-start text-gray-600">
@@ -199,7 +218,7 @@ const About = () => {
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Customer-Centric</h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                We prioritize understanding and meeting the unique needs of each customer, ensuring their journey is comfortable, meaningful, and memorable.
+                We prioritize understanding and meeting the unique needs of each customer, ensuring their journey is comfortable, meaningful, and memorable. Trust and customer service are at the heart of everything we do.
               </p>
             </motion.div>
             
@@ -214,7 +233,7 @@ const About = () => {
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Quality Focused</h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Our commitment to excellence ensures that every aspect of your journey meets the highest standards of quality and service.
+                Our commitment to excellence ensures that every aspect of your journey meets the highest standards of quality and service. "Quality travel with trust is our mantra."
               </p>
             </motion.div>
           </div>
