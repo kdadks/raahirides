@@ -85,7 +85,7 @@ exports.handler = async (event, context) => {
     // Create transporter
     let transporter;
     try {
-      transporter = nodemailer.createTransporter(smtpConfig);
+      transporter = nodemailer.createTransport(smtpConfig);
     } catch (transporterError) {
       console.error('Error creating transporter:', transporterError);
       return {
