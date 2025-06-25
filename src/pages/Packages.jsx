@@ -31,9 +31,60 @@ const Packages = () => {
   return (
     <>
       <Helmet>
-        <title>Tour Packages | RaahiRides Travel Agency</title>
-        <meta name="description" content="Discover spiritual and heritage tour packages in Eastern UP, Bihar, and Nepal. Book curated journeys with RaahiRides for the best travel experiences." />
-        <meta name="keywords" content="tour packages, travel, spiritual tours, heritage tours, India, Nepal, Eastern UP, Bihar, RaahiRides, curated journeys, book tours" />
+        <title>Uttar Pradesh Travel Packages: Varanasi, Lucknow, Ayodhya & More | RaahiRides</title>
+        <meta name="description" content="Book the best travel packages for Uttar Pradesh, including Varanasi, Lucknow, Ayodhya, and more. Explore spiritual, heritage, and cultural tours with RaahiRides." />
+        <meta name="keywords" content="Uttar Pradesh travel packages, Varanasi tours, Lucknow packages, Ayodhya travel, India tours, RaahiRides, book UP tours, spiritual journeys, heritage tours" />
+        <link rel="canonical" href="https://raahirides.com/packages" />
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Uttar Pradesh Travel Packages: Varanasi, Lucknow, Ayodhya & More | RaahiRides" />
+        <meta property="og:description" content="Book the best travel packages for Uttar Pradesh, including Varanasi, Lucknow, Ayodhya, and more. Explore spiritual, heritage, and cultural tours with RaahiRides." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://raahirides.com/packages" />
+        <meta property="og:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Uttar Pradesh Travel Packages: Varanasi, Lucknow, Ayodhya & More | RaahiRides" />
+        <meta name="twitter:description" content="Book the best travel packages for Uttar Pradesh, including Varanasi, Lucknow, Ayodhya, and more. Explore spiritual, heritage, and cultural tours with RaahiRides." />
+        <meta name="twitter:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            "name": "Uttar Pradesh Travel Packages",
+            "description": "Best travel packages for Uttar Pradesh including Varanasi, Lucknow, Ayodhya, and more. Book tours with RaahiRides.",
+            "url": "https://raahirides.com/packages",
+            "image": "https://raahirides.com/Lucknow.jpg",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Varanasi Spiritual Tour",
+                  "url": "https://raahirides.com/tour/varanasi"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Lucknow Heritage Package",
+                  "url": "https://raahirides.com/tour/lucknow"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Trip",
+                  "name": "Ayodhya Pilgrimage Tour",
+                  "url": "https://raahirides.com/tour/ayodhya"
+                }
+              }
+            ]
+          }
+          `}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-amber-50/30 to-orange-50/50 pt-24">
       {/* Header Section */}

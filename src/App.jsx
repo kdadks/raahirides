@@ -87,21 +87,19 @@ function App() {
                 </motion.p>
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-2 sm:mt-4">
                   <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
-                    15+ Years of Travel Industry Experience
+                    15+ Yrs of Travel Industry Exp.
                   </span>
                   <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
-                    Govt. Certified 
+                    Govt. Certified Vendor
                   </span>
                   <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
-                    Serving UP Govt. for 10+ Years
+                    Serving UP Govt. Since 2010
                   </span>
-                  <span className="bg-orange-100 text-orange-700 font-semibold px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow text-xs sm:text-base md:text-lg">
-                    Trust & Customer Service Focused
-                  </span>
+
                 </div>
                 <div className="mt-2 sm:mt-4">
                   <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-4 py-1 sm:px-6 sm:py-2 rounded-full shadow text-base sm:text-lg md:text-xl tracking-wide">
-                    Quality travel with trust is our mantra
+                    Our Mantra is "Quality Travel with Trust"
                   </span>
                 </div>
                 <motion.p

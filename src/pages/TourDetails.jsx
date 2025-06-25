@@ -42,15 +42,54 @@ const TourDetails = () => {
   return (
     <>
       <Helmet>
-        <title>{tour ? `${tour.title} | RaahiRides Tour Details` : "Tour Details | RaahiRides"}</title>
+        <title>{tour ? `${tour.title} | Uttar Pradesh Tour Package | RaahiRides` : "Tour Details | RaahiRides"}</title>
         <meta
           name="description"
-          content={tour ? `${tour.description} - Duration: ${tour.duration}, Price: ${tour.price}. Book with RaahiRides for the best travel experience in Eastern UP, Bihar, and Nepal.` : "Tour details for RaahiRides travel packages."}
+          content={tour ? `${tour.description} - Duration: ${tour.duration}, Price: ${tour.price}. Book your Uttar Pradesh, Varanasi, Lucknow, or Ayodhya tour with RaahiRides for the best travel experience in India.` : "Tour details for RaahiRides travel packages."}
         />
         <meta
           name="keywords"
-          content={tour ? `tour details, ${tour.title}, ${tour.destinations?.map(d => d.name).join(", ")}, travel, spiritual tours, heritage tours, RaahiRides, India, Nepal, Eastern UP, Bihar` : "tour details, travel, RaahiRides"}
+          content={tour ? `Uttar Pradesh tour, ${tour.title}, ${tour.destinations?.map(d => d.name).join(", ")}, Varanasi, Lucknow, Ayodhya, travel, spiritual tours, heritage tours, RaahiRides, India, book tour` : "tour details, travel, RaahiRides"}
         />
+        <link rel="canonical" href={tour ? `https://raahirides.com/tour/${tour.id}` : "https://raahirides.com/tour"} />
+        {/* Open Graph tags */}
+        <meta property="og:title" content={tour ? `${tour.title} | Uttar Pradesh Tour Package | RaahiRides` : "Tour Details | RaahiRides"} />
+        <meta property="og:description" content={tour ? `${tour.description} - Duration: ${tour.duration}, Price: ${tour.price}. Book your Uttar Pradesh, Varanasi, Lucknow, or Ayodhya tour with RaahiRides.` : "Tour details for RaahiRides travel packages."} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={tour ? `https://raahirides.com/tour/${tour.id}` : "https://raahirides.com/tour"} />
+        <meta property="og:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={tour ? `${tour.title} | Uttar Pradesh Tour Package | RaahiRides` : "Tour Details | RaahiRides"} />
+        <meta name="twitter:description" content={tour ? `${tour.description} - Duration: ${tour.duration}, Price: ${tour.price}. Book your Uttar Pradesh, Varanasi, Lucknow, or Ayodhya tour with RaahiRides.` : "Tour details for RaahiRides travel packages."} />
+        <meta name="twitter:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Structured Data */}
+        {tour && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TouristTrip",
+              "name": tour.title,
+              "description": tour.description,
+              "image": "https://raahirides.com/Lucknow.jpg",
+              "offers": {
+                "@type": "Offer",
+                "price": tour.price,
+                "priceCurrency": "INR",
+                "url": `https://raahirides.com/tour/${tour.id}`
+              },
+              "itinerary": tour.destinations?.map(d => ({
+                "@type": "TouristDestination",
+                "name": d.name
+              })),
+              "provider": {
+                "@type": "TravelAgency",
+                "name": "RaahiRides",
+                "url": "https://raahirides.com"
+              }
+            })}
+          </script>
+        )}
       </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-orange-50/30 to-amber-50/50">
       {/* Header Section */}

@@ -38,21 +38,18 @@ const About = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
-                15+ Years of Travel Industry Experience
+                15+ Yrs of Travel Industry Experience
               </span>
               <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
-                Govt. Certified
+                Govt. Certified Vendor
               </span>
               <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
-                Serving UP Govt. for 10+ Years
-              </span>
-              <span className="bg-orange-100 text-orange-700 font-semibold px-4 py-2 rounded-full shadow text-base md:text-lg">
-                Trust & Customer Service Focused
+                Serving UP Govt. Since 2010 
               </span>
             </div>
             <div className="mt-4">
               <span className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold px-6 py-2 rounded-full shadow text-lg md:text-xl tracking-wide">
-                Quality travel with trust is our mantra
+                Our Mantra is "Quality Travel with Trust"
               </span>
             </div>
           </motion.div>

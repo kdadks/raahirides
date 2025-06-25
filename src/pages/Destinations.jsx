@@ -27,9 +27,61 @@ const Destinations = () => {
   return (
     <>
       <Helmet>
-        <title>Popular Destinations | RaahiRides Travel Agency</title>
-        <meta name="description" content="Explore the most popular spiritual and cultural destinations in Eastern UP, Bihar, and Nepal. Discover sacred places, heritage sites, and custom travel packages with RaahiRides." />
-        <meta name="keywords" content="destinations, travel, tours, spiritual, cultural, heritage, India, Nepal, Eastern UP, Bihar, RaahiRides, popular places, sacred sites, custom packages" />
+        <title>Top Destinations in Uttar Pradesh: Varanasi, Lucknow, Ayodhya & More | RaahiRides Travel Agency</title>
+        <meta name="description" content="Discover the best travel destinations in Uttar Pradesh including Varanasi, Lucknow, Ayodhya, and more. Book spiritual, heritage, and cultural tours with RaahiRides for an unforgettable experience in India." />
+        <meta name="keywords" content="Uttar Pradesh travel, Varanasi tours, Lucknow travel, Ayodhya tourism, best destinations UP, spiritual tours India, heritage tours, RaahiRides, travel agency, India, book tours" />
+        <link rel="canonical" href="https://raahirides.com/destinations" />
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Top Destinations in Uttar Pradesh: Varanasi, Lucknow, Ayodhya & More | RaahiRides" />
+        <meta property="og:description" content="Discover the best travel destinations in Uttar Pradesh including Varanasi, Lucknow, Ayodhya, and more. Book spiritual, heritage, and cultural tours with RaahiRides." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://raahirides.com/destinations" />
+        <meta property="og:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Top Destinations in Uttar Pradesh: Varanasi, Lucknow, Ayodhya & More | RaahiRides" />
+        <meta name="twitter:description" content="Discover the best travel destinations in Uttar Pradesh including Varanasi, Lucknow, Ayodhya, and more. Book spiritual, heritage, and cultural tours with RaahiRides." />
+        <meta name="twitter:image" content="https://raahirides.com/Lucknow.jpg" />
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "TouristDestination",
+            "name": "Uttar Pradesh Destinations",
+            "description": "Best travel destinations in Uttar Pradesh including Varanasi, Lucknow, Ayodhya, and more. Book tours with RaahiRides.",
+            "url": "https://raahirides.com/destinations",
+            "image": "https://raahirides.com/Lucknow.jpg",
+            "touristType": ["Spiritual", "Heritage", "Cultural"],
+            "geo": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 26.8467,
+                "longitude": 80.9462
+              },
+              "geoRadius": 200
+            },
+            "hasPart": [
+              {
+                "@type": "TouristAttraction",
+                "name": "Varanasi",
+                "url": "https://raahirides.com/destinations/varanasi"
+              },
+              {
+                "@type": "TouristAttraction",
+                "name": "Lucknow",
+                "url": "https://raahirides.com/destinations/lucknow"
+              },
+              {
+                "@type": "TouristAttraction",
+                "name": "Ayodhya",
+                "url": "https://raahirides.com/destinations/ayodhya"
+              }
+            ]
+          }
+          `}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-amber-50/30 to-orange-50/50 pt-24">
       {/* Header Section */}
