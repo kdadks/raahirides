@@ -9,7 +9,7 @@ Raahi Rides is a comprehensive travel service provider offering exceptional expe
 ## 🎯 Features
 
 ### Core Functionality
-- **Spiritual Journey Packages**: Curated tours including Moksha Yatra, Avadh Retreat, and Holy Spirit Retreat
+- **Spiritual Journey Packages**: Curated tours including Moksha Yatra, Avadh Retreat, and Divine Yatra
 - **Popular Destinations**: Varanasi, Sarnath, Bodh Gaya, Ayodhya, Lucknow, Gorakhpur, and Prayagraj
 - **Interactive Booking System**: Modal-based booking with destination selection
 - **User Authentication**: Secure login/signup system with protected routes
@@ -183,7 +183,7 @@ raahi-rides/
    - Prayagraj (Triveni Sangam, Anand Bhavan, Allahabad Fort)
    - Lucknow (Bara Imambara, Rumi Darwaza, Chota Imambara)
 
-3. **Holy Spirit Retreat**
+3. **Divine Yatra**
    - Gorakhpur (Gorakhnath Temple, Gita Vatika, Railway Museum)
    - Multi-city spiritual journey covering major pilgrimage sites
 

@@ -137,7 +137,7 @@ export const packageTours = [
   },
   {
     id: "avadh-retreat",
-    title: "Avadh Retreat",
+    title: "Avadh Yatra",
     duration: "4 Days / 3 Nights",
     price: "Price on Request",
     description: "Explore the royal heritage and spiritual significance of Awadh region",
@@ -217,8 +217,8 @@ export const packageTours = [
     ]
   },
   {
-    id: "holy-spirit-retreat",
-    title: "Holy Spirit Retreat",
+    id: "divine-yatra",
+    title: "Divine Yatra",
     duration: "6 Days / 5 Nights",
     price: "Price on Request",
     description: "A comprehensive spiritual journey through Eastern UP's most sacred sites",
